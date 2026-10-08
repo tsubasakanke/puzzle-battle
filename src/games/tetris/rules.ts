@@ -12,7 +12,7 @@ export interface TetrisInitial { rows?: string[]; queue?: string[] }
 
 export const EMPTY = '.';
 export const SPAWN_X = 3;
-export const SPAWN_Y = 0;
+export const SPAWN_Y = 1;
 const TOTAL_ROWS = TETRIS.rows + TETRIS.hiddenRows;
 
 // TODO(integrator): 得点の数値は balance.ts の TETRIS に移すとよい（core を触れないためここに置いている）
