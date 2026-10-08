@@ -1,0 +1,125 @@
+:root {
+  --bg: #14121f;
+  --bg2: #1d1a2e;
+  --panel: #241f3a;
+  --line: #3a3358;
+  --text: #f1eefe;
+  --muted: #a59fc4;
+  --accent: #ff5d8f;
+  --accent2: #6ad1ff;
+  --ok: #55e39b;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; background: radial-gradient(ellipse at top, #2a2148, var(--bg) 60%); color: var(--text);
+  font-family: system-ui, -apple-system, 'Hiragino Sans', 'Noto Sans JP', sans-serif; overscroll-behavior: none; }
+#app { min-height: 100%; }
+button { font: inherit; color: inherit; cursor: pointer; }
+input, select { font: inherit; color: var(--text); background: var(--bg2); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; width: 100%; }
+
+.page { max-width: 760px; margin: 0 auto; padding: 16px 16px 48px; }
+.page-head { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.page-head h1 { font-size: 22px; margin: 0; }
+.back { background: none; border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; }
+.lead { font-size: 17px; font-weight: 600; }
+.hint { color: var(--muted); font-size: 14px; }
+.panel { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 16px; margin: 12px 0; }
+.panel h2 { font-size: 16px; margin: 0 0 10px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0; }
+.row > input { flex: 1 1 200px; }
+
+.btn { border: 1px solid var(--line); background: var(--bg2); border-radius: 12px; padding: 10px 18px; font-weight: 600; }
+.btn:hover { border-color: var(--accent2); }
+.btn.primary { background: linear-gradient(135deg, var(--accent), #ff8f6b); border: none; color: #fff; }
+.btn.big { width: 100%; padding: 14px; font-size: 18px; margin-top: 8px; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }
+
+/* ホーム */
+.home .logo { text-align: center; margin: 24px 0 20px; }
+.home .logo span { font-size: 40px; }
+.home .logo h1 { font-size: 40px; margin: 4px 0; letter-spacing: .02em;
+  background: linear-gradient(90deg, var(--accent2), var(--accent)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.home .logo p { color: var(--muted); margin: 0; }
+.menu { display: grid; gap: 10px; }
+.menu-item { display: flex; align-items: center; gap: 14px; text-align: left; padding: 14px 16px; border-radius: 16px;
+  background: var(--panel); border: 1px solid var(--line); transition: transform .1s, border-color .1s; }
+.menu-item:hover { transform: translateY(-2px); border-color: var(--accent2); }
+.mi-emoji { font-size: 28px; }
+.mi-text { display: flex; flex-direction: column; }
+.mi-text small { color: var(--muted); }
+
+/* ゲーム選択カード */
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.card { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 16px 8px; border-radius: 16px;
+  background: var(--bg2); border: 2px solid var(--line); text-align: center; }
+.card:hover { border-color: var(--accent2); }
+.card.selected { border-color: var(--accent); background: #34223f; }
+.card-emoji { font-size: 34px; }
+.card small { color: var(--muted); font-size: 12px; }
+.levels { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.level { padding: 18px; border-radius: 16px; border: 2px solid var(--line); background: var(--bg2); font-size: 18px; font-weight: 700; }
+.level-easy { border-color: #4caf50; } .level-normal { border-color: #2196f3; }
+.level-hard { border-color: #ff9800; } .level-oni { border-color: #f44336; background: #3a1820; }
+
+/* 設定 */
+.set-row { display: flex; align-items: center; gap: 12px; margin: 10px 0; }
+.set-row > span { flex: 0 0 140px; color: var(--muted); }
+.keys table { width: 100%; border-collapse: collapse; }
+.keys td { padding: 6px 4px; border-bottom: 1px solid var(--line); }
+kbd { background: var(--bg2); border: 1px solid var(--line); border-radius: 6px; padding: 2px 6px; font-size: 13px; }
+
+/* オンライン */
+.room-code { margin: 0 0 6px; color: var(--muted); }
+.room-code b { color: var(--text); font-size: 26px; letter-spacing: .15em; margin-left: 6px; }
+.link-input { font-size: 13px; }
+.slots { display: flex; align-items: stretch; gap: 10px; }
+.slot { flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 14px; border-radius: 16px; background: var(--panel); border: 2px solid var(--line); }
+.slot.ready { border-color: var(--ok); }
+.slot.offline { opacity: .55; }
+.slot.empty { border-style: dashed; color: var(--muted); }
+.slot small { color: var(--muted); }
+.vs { align-self: center; font-weight: 800; color: var(--accent); }
+.result { text-align: center; border-color: var(--accent); }
+.result h2 { font-size: 22px; }
+
+/* ゲーム画面 */
+.game-screen { height: 100dvh; display: flex; flex-direction: column; }
+.topbar { display: flex; align-items: center; gap: 8px; padding: 6px 8px; }
+.hud { flex: 1; font-size: 14px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.icon-btn { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 6px 12px; }
+.icon-btn.small { font-size: 13px; }
+.playfield { flex: 1; min-height: 0; display: flex; flex-direction: column; }
+.pf-stage { position: relative; flex: 1; min-height: 0; }
+.pf-canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; display: block; }
+.pf-overlay { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none; }
+.pf-overlay > * { pointer-events: auto; }
+.ov-big { display: flex; flex-direction: column; align-items: center; text-shadow: 0 4px 24px #000; pointer-events: none !important; }
+.ov-big b { font-size: 72px; }
+.ov-big small { font-size: 18px; background: rgba(0,0,0,.5); padding: 4px 12px; border-radius: 999px; }
+.ov-box { background: rgba(20,18,31,.94); border: 1px solid var(--line); border-radius: 18px; padding: 20px 24px; text-align: center; min-width: 260px; }
+.ov-box h2 { margin: 0 0 8px; }
+.ov-box .best { color: #ffd166; font-weight: 700; }
+.ov-btns { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 12px; }
+.tut-panel { margin: 0 8px; padding: 10px 14px; background: var(--panel); border: 1px solid var(--line); border-radius: 12px; }
+.tut-panel b { display: block; font-size: 16px; }
+.tut-panel p { margin: 4px 0 0; white-space: pre-line; color: var(--muted); font-size: 14px; }
+.tut-progress { font-size: 12px; color: var(--accent2); }
+
+/* タッチボタン */
+.touchpad { display: grid; gap: 8px; padding: 8px 10px calc(10px + env(safe-area-inset-bottom)); user-select: none; -webkit-user-select: none; touch-action: none; }
+.touchpad-tetris { grid-template-columns: repeat(4, 1fr); }
+.touchpad-tetris .tbtn-left { grid-column: 1 / span 1; } 
+.touchpad-tetris .tbtn-down { grid-column: 2 / span 2; }
+.touchpad-puyo { grid-template-columns: repeat(3, 1fr); }
+.touchpad-puyo .tbtn-rotateCCW { grid-column: 1 / span 1; }
+.touchpad-puyo .tbtn-rotateCW { grid-column: 2 / span 2; }
+.tbtn { height: 54px; border-radius: 14px; border: 1px solid var(--line); background: var(--panel); font-size: 22px; font-weight: 700; touch-action: none; }
+.tbtn.on { background: #3a3260; border-color: var(--accent2); }
+
+@media (max-width: 520px) {
+  .cards { grid-template-columns: 1fr; }
+  .card { flex-direction: row; justify-content: flex-start; gap: 12px; padding: 12px 16px; text-align: left; }
+  .card small { margin-left: auto; }
+  .slots { flex-direction: column; }
+  .set-row > span { flex-basis: 100px; }
+}
