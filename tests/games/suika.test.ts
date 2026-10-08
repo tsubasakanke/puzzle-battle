@@ -70,6 +70,13 @@ describe('suika', () => {
     for (let t = 0; t < 30000; t += 1000 / 60) e.update(1000 / 60, ai.next(1000 / 60));
     expect(e.stats.drops).toBeGreaterThan(10); expect(e.stats.merges).toBeGreaterThan(0);
   });
+  it('AI はどの難易度でも落とし続ける', () => {
+    for (const lv of ['easy', 'hard', 'oni'] as const) {
+      const e = new SuikaEngine({ seed: 5, mode: 'solo' }); const ai = suikaModule.createAI(e, lv, 2);
+      for (let t = 0; t < 8000; t += 1000 / 60) e.update(1000 / 60, ai.next(1000 / 60));
+      expect(e.stats.drops).toBeGreaterThan(3);
+    }
+  });
   it('チュートリアルは3ステップでゴール判定できる', () => {
     expect(suikaModule.tutorial.length).toBe(3);
     const s2 = suikaModule.tutorial[1]; const e = suikaModule.create({ seed: 1, mode: 'tutorial', initial: s2.initial }) as SuikaEngine;
